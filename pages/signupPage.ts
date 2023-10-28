@@ -1,6 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 
-export class SignupPage{
+export class SignupPage {
     readonly page: Page;
     readonly passwordInput: Locator;
     readonly firstNameInput: Locator;
@@ -13,7 +13,7 @@ export class SignupPage{
     readonly mobileNumberInput: Locator;
     readonly createAccountButton: Locator;
 
-    constructor(page: Page){
+    constructor(page: Page) {
         this.page = page;
         this.passwordInput = page.locator("//input[@data-qa='password']");
         this.firstNameInput = page.locator("//input[@data-qa='first_name']");
@@ -43,7 +43,7 @@ export class SignupPage{
         await this.addressInput.type(address);
     };
 
-    async chooseCountry(country: string){
+    async chooseCountry(country: string) {
         await this.country.selectOption(country);
     }
 

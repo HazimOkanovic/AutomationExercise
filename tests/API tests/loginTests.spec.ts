@@ -1,4 +1,4 @@
-import { APIData } from "../../utilities/constants";
+import { APIData, Constants } from "../../utilities/constants";
 import { test, expect } from "../baseTest";
 import { request } from "@playwright/test";
 
@@ -8,11 +8,11 @@ test("Valid login", async ({ request }) => {
             "Accept": "application/json",
             "Content-Type": "application/json"
         },
-        data:  APIData.validLogin 
+        data: APIData.validLogin
     });
 
     expect(await response.status()).toBe(200);
-    expect(await response.text.toString).toMatch("User exists!")
+    expect(await response.text).toMatch(Constants.userExists);
 });
 
 test("Invalid login", async ({ request }) => {
@@ -21,9 +21,9 @@ test("Invalid login", async ({ request }) => {
             "Accept": "application/json",
             "Content-Type": "application/json"
         },
-        data:  APIData.invalidLogin 
+        data: APIData.invalidLogin
     });
 
-    expect(await response.status).toBe(404);
-    expect(await response.text).toMatch("User not found!")
+    expect(await response.status()).toBe(404);
+    expect(await response.text).toMatch(Constants.userNotFound);
 })
