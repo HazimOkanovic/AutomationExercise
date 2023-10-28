@@ -14,7 +14,7 @@ test('Go to Login page test',async ({ homePage, page}) => {
 test('Go to Sign up page test',async ({ loginPage, page}) => {
     await page.goto(`${PagesURLs.loginPage}`, {waitUntil: 'load'});
     await loginPage.enterSignUpName("Hazim");
-    await loginPage.enterSignUpEmail("private.pitanje@outlook.com");
+    await loginPage.enterSignUpEmail(Constants.email);
     await loginPage.clickSignUpButton();
 
     expect(await page.url()).toMatch("https://www.automationexercise.com/signup")
