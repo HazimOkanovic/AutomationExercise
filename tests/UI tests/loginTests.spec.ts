@@ -1,33 +1,33 @@
 import { expect, test } from "../baseTest";
-import { Constants } from "../../utilities/constants";
+import { Constants, PagesURLs } from "../../utilities/constants";
 
-test.beforeEach(async ({ page, baseURL}) => {
-    await page.goto(`${baseURL}`, { waitUntil: 'load'});    
+test.beforeEach(async ({ page, baseURL }) => {
+    await page.goto(`${baseURL}`, { waitUntil: 'load' });
 });
 
-test('Login test',async ({ homePage, page}) => {
+test('Login test', async ({ homePage, page }) => {
     await homePage.clickLoginRegisterButton();
-    
-    expect(await page.url()).toMatch("https://www.automationexercise.com/login")
+
+    expect(await page.url()).toMatch(PagesURLs.loginPage);
 });
 
-test('Unsuccessful login test',async ({ homePage, loginPage, page}) => {
+test('Unsuccessful login test', async ({ homePage, loginPage, page }) => {
     await homePage.clickLoginRegisterButton();
     await loginPage.enterLoginEmail(Constants.email);
-    await loginPage.enterLoginPassword("ThePassword");
+    await loginPage.enterLoginPassword(Constants.password);
     await loginPage.clickLoginButton();
-    
-    expect(await loginPage.loginErrorMessage).toHaveText("Your email or password is incorrect!");
-    expect(await page.url()).toMatch("https://www.automationexercise.com/login");
+
+    expect(await loginPage.loginErrorMessage).toHaveText(Constants.loginError);
+    expect(await page.url()).toMatch(PagesURLs.loginPage);
 });
 
-test('Successful login test',async ({ homePage, loginPage, page}) => {
+test('Successful login test', async ({ homePage, loginPage, page }) => {
     await homePage.clickLoginRegisterButton();
-    await loginPage.enterLoginEmail("private.pitanje@outlook.com");
-    await loginPage.enterLoginPassword("ThePassword");
+    await loginPage.enterLoginEmail(Constants.validEmail);
+    await loginPage.enterLoginPassword(Constants.password);
     await loginPage.clickLoginButton();
-    
-    expect(await homePage.logOutButton).toHaveText("Logout");
-    expect(await page.url()).toMatch("https://www.automationexercise.com");
+
+    expect(await homePage.logOutButton).toHaveText(Constants.logout);
+    expect(await page.url()).toMatch(PagesURLs.homePage);
 })
 

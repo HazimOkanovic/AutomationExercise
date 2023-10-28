@@ -1,6 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 
-export class LoginPage{
+export class LoginPage {
     readonly page: Page;
     readonly signUpName: Locator;
     readonly signUpEmail: Locator;
@@ -10,7 +10,7 @@ export class LoginPage{
     readonly loginButton: Locator;
     readonly loginErrorMessage: Locator;
 
-    constructor(page: Page){
+    constructor(page: Page) {
         this.page = page;
         this.signUpName = page.locator("//input[@data-qa='signup-name']");
         this.signUpEmail = page.locator("//input[@data-qa='signup-email']");
@@ -18,30 +18,30 @@ export class LoginPage{
         this.loginEmail = page.locator("//input[@data-qa='login-email']");
         this.loginPassword = page.locator("//input[@data-qa='login-password']");
         this.loginButton = page.locator("//button[@data-qa='login-button']");
-        this.loginErrorMessage = page.locator('p', {hasText: 'incorrect'});
+        this.loginErrorMessage = page.locator('p', { hasText: 'incorrect' });
     }
 
-    async enterSignUpName(name: string){
+    async enterSignUpName(name: string) {
         await this.signUpName.type(name);
     }
 
-    async enterSignUpEmail(email: string){
+    async enterSignUpEmail(email: string) {
         await this.signUpEmail.type(email);
     }
 
-    async enterLoginEmail(email: string){
+    async enterLoginEmail(email: string) {
         await this.loginEmail.type(email);
     }
 
-    async enterLoginPassword(password: string){
+    async enterLoginPassword(password: string) {
         await this.loginPassword.type(password);
     }
 
-    async clickLoginButton(){
+    async clickLoginButton() {
         await this.loginButton.click();
     }
 
-    async clickSignUpButton(){
+    async clickSignUpButton() {
         await this.signUpButton.click();
     }
 }
