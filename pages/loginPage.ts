@@ -8,6 +8,7 @@ export class LoginPage{
     readonly loginEmail: Locator;
     readonly loginPassword: Locator;
     readonly loginButton: Locator;
+    readonly loginErrorMessage: Locator;
 
     constructor(page: Page){
         this.page = page;
@@ -17,6 +18,7 @@ export class LoginPage{
         this.loginEmail = page.locator("//input[@data-qa='login-email']");
         this.loginPassword = page.locator("//input[@data-qa='login-password']");
         this.loginButton = page.locator("//button[@data-qa='login-button']");
+        this.loginErrorMessage = page.locator('p', {hasText: 'incorrect'});
     }
 
     async enterSignUpName(name: string){
@@ -27,12 +29,12 @@ export class LoginPage{
         await this.signUpEmail.type(email);
     }
 
-    async enterLoginEmail(value: {email: string}){
-        await this.loginEmail.type(value.email);
+    async enterLoginEmail(email: string){
+        await this.loginEmail.type(email);
     }
 
-    async enterLoginPassword(value: {password: string}){
-        await this.loginPassword.type(value.password);
+    async enterLoginPassword(password: string){
+        await this.loginPassword.type(password);
     }
 
     async clickLoginButton(){
