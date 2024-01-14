@@ -1,9 +1,9 @@
 # AutomationExercise - Playwright UI & API Automation 
 
-I have written test scripts covering below framework principles; 
-Input Data reading from external file
-Page Object Model Reporting in html reporter Reporters | Playwright 
-Execution command line options to run on variety of supported browsers 
+I have written test scripts covering below framework principles below; <br />
+Input Data reading from an external file <br />
+Page Object Model Reporting in HTML Reporter Reporters | Playwright  <br />
+Execution command line options to run on a variety of supported browsers <br />
 
 UI Test1 - Register user 
 UI Test2 - Login user Login - Valid / Invalid scenario 
