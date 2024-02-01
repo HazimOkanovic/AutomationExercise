@@ -1,6 +1,5 @@
-import { APIData, Constants } from "../../utilities/constants";
+import { APIData, Constants } from "../../constants";
 import { test, expect } from "../baseTest";
-import { request } from "@playwright/test";
 
 test("Create account", async ({ request }) => {
     const response = await request.post("https://automationexercise.com/api/createAccount", {
@@ -11,6 +10,8 @@ test("Create account", async ({ request }) => {
         data: APIData.createAccount
     });
 
+    const jsonResponse = response.json();
+
     expect(await response.status).toBe(201);
-    expect(await response.text).toMatch(Constants.userCreated)
+    expect(await jsonResponse).toMatch(Constants.userCreated)
 })

@@ -1,4 +1,4 @@
-import { Constants, PagesURLs } from "../../utilities/constants";
+import { Constants, PagesURLs } from "../../constants";
 import { expect, test } from "../baseTest";
 
 test.beforeEach(async ({ page, baseURL }) => {

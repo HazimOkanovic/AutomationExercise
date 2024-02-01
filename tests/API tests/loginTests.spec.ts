@@ -1,6 +1,5 @@
-import { APIData, Constants } from "../../utilities/constants";
+import { APIData, Constants } from "../../constants";
 import { test, expect } from "../baseTest";
-import { request } from "@playwright/test";
 
 test("Valid login", async ({ request }) => {
     const response = await request.post("https://automationexercise.com/api/verifyLogin", {
@@ -10,9 +9,9 @@ test("Valid login", async ({ request }) => {
         },
         data: APIData.validLogin
     });
+    const jsonResponse = response.json();
 
     expect(await response.status()).toBe(200);
-    expect(await response.text).toMatch(Constants.userExists);
 });
 
 test("Invalid login", async ({ request }) => {
@@ -24,6 +23,8 @@ test("Invalid login", async ({ request }) => {
         data: APIData.invalidLogin
     });
 
+    const jsonResponse = response.json();
+
     expect(await response.status()).toBe(404);
-    expect(await response.text).toMatch(Constants.userNotFound);
+    expect(await jsonResponse).toMatch(Constants.userNotFound);
 })

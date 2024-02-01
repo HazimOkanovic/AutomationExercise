@@ -1,4 +1,4 @@
-import { randomText } from "../utilities/random";
+import { randomText } from "../AutomationExercise/utilities/random";
 
 const userName = randomText();
 
@@ -35,7 +35,7 @@ export const APIData = {
     createAccount: { "name": "Hazim", "email": userName + "@inboxkitten.com", "password": "ThePassword", "title": "Mr", "birth_date": "01-10-1992", "birth_month": "1", "birth_year": "1992", "firstname": "Hazim", "lastname": "Okanovic", "company": "Upwork", "address1": "Sahmani bb", "address2": "Vogosca 2", "country": "USA", "zipcode": "71320", "state": "BiH", "city": "Vogosca", "mobile_number": "61645461651" },
     validLogin: { "email": "private.pitanje@outlook.com", "password": "ThePassword" },
     invalidLogin: { "email": "private@outlook.com", "password": "ThePassword" },
-    searchBlue: { "search_product": "blue" },
+    searchBlue: { "search_product": "jeans" },
     searchYellow: { "search_product": "yellow" }
 }
 

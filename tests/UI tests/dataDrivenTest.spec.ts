@@ -2,7 +2,7 @@ import { expect, test } from "../baseTest";
 import fs from 'fs';
 import path from 'path';
 import { parse } from 'csv-parse/sync';
-import { Constants } from "../../utilities/constants";
+import { Constants } from "../../constants";
 
 test('Data driven test', async ({ page, homePage, searchPage, baseURL }) => {
     const records = parse(fs.readFileSync(path.join(__dirname, 'blue_products.csv')), {

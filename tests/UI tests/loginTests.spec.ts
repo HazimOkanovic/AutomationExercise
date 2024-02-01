@@ -1,5 +1,5 @@
 import { expect, test } from "../baseTest";
-import { Constants, PagesURLs } from "../../utilities/constants";
+import { Constants, PagesURLs } from "../../constants";
 
 test.beforeEach(async ({ page, baseURL }) => {
     await page.goto(`${baseURL}`, { waitUntil: 'load' });
