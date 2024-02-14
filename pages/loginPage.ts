@@ -22,19 +22,19 @@ export class LoginPage {
     }
 
     async enterSignUpName(name: string) {
-        await this.signUpName.type(name);
+        await this.signUpName.fill(name);
     }
 
     async enterSignUpEmail(email: string) {
-        await this.signUpEmail.type(email);
+        await this.signUpEmail.fill(email);
     }
 
     async enterLoginEmail(email: string) {
-        await this.loginEmail.type(email);
+        await this.loginEmail.fill(email);
     }
 
     async enterLoginPassword(password: string) {
-        await this.loginPassword.type(password);
+        await this.loginPassword.fill(password);
     }
 
     async clickLoginButton() {

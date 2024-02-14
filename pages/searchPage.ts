@@ -23,5 +23,5 @@ export class SearchPage {
 
     async clickAddToCart() {
         await this.addToCartButton.click();
-    }
+    };
 }

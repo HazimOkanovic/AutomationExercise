@@ -65,5 +65,5 @@ export class SignupPage {
 
     async clickCreateAccount() {
         await this.createAccountButton.click();
-    }
+    };
 }

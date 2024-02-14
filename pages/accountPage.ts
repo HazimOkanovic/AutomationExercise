@@ -6,6 +6,6 @@ export class AccountPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.successMessage = page.locator('p', { hasText: 'Congratulations!' })
+        this.successMessage = page.locator('p', { hasText: 'Congratulations!' });
     }
 }

@@ -1,7 +1,6 @@
 import { test as baseTest } from "@playwright/test";
 import { HomePage } from "../pages/homePage";
 import { LoginPage } from "../pages/loginPage";
-import { CartPage } from "../pages/cartPage";
 import { SignupPage } from "../pages/signupPage";
 import { AccountPage } from "../pages/accountPage";
 import { SearchPage } from "../pages/searchPage";
@@ -9,7 +8,6 @@ import { SearchPage } from "../pages/searchPage";
 type allPages = {
     homePage: HomePage;
     loginPage: LoginPage;
-    cartPage: CartPage;
     signupPage: SignupPage;
     accountPage: AccountPage;
     searchPage: SearchPage;
@@ -22,10 +20,6 @@ const pages = baseTest.extend<allPages>({
 
     loginPage: async ({ page }, use) => {
         await use(new LoginPage(page));
-    },
-
-    cartPage: async ({ page }, use) => {
-        await use(new CartPage(page));
     },
 
     signupPage: async ({ page }, use) => {
